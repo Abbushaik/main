@@ -29,8 +29,7 @@ class Solution{
                 ++platform;
                 i++;
             }
-            if(platform > mx)
-              mx = platform;
+            mx=max(platform,mx);
         }
         return mx;
     }
