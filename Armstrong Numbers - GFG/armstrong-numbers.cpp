@@ -21,7 +21,7 @@ class Solution {
         while(s)
         {
             int r = s%10;
-              ans+=r*r*r;
+              ans+=int(pow(r,digit));
               s/=10;
         }
         if(ans==n)
