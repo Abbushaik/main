@@ -1,29 +1,12 @@
 class Solution {
 public:
-     int binarysearch(int l,int h,vector<int>&nums,int target)
-     {
-           while(l<=h)
-           {
-             int m = (l+h)/2;
-               if(nums[m]<target)
-               {
-                   l=m+1;
-               }
-               else
-               {
-                   h=m-1;
-               }
-           }
-         return l;
-     }
-    vector<int> searchRange(vector<int>& nums, int target)
+    vector<int> searchRange(vector<int>& nums, int target) 
     {
-        int it1,it2;
-        it1=binarysearch(0,nums.size()-1,nums,target);
-        it2=binarysearch(0,nums.size()-1,nums,target+1)-1;
+        int it1=lower_bound(nums.begin(),nums.end(),target)-nums.begin();
+        int it2=lower_bound(nums.begin(),nums.end(),target+1)-nums.begin();
         if(it1<nums.size() && nums[it1]==target)
         {
-            return {it1,it2};
+            return {it1,it2-1};
         }
         return {-1,-1};
     }
